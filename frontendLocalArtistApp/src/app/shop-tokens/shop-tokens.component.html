@@ -1,0 +1,51 @@
+
+
+<div class="user-form-area">
+  <div class="container-fluid p-0">
+  <div class="row m-0">
+  <!-- <div class="col-lg-6 p-0">
+  <div class="user-img">
+  <img src="assets/img/user-form-bg.jpg" alt="User">
+  </div>
+  </div> -->
+  <div class="col-lg-12 p-0">
+  <div class="user-content">
+  <div class="d-table">
+  <div class="d-table-cell">
+  <div class="user-content-inner">
+  <div class="top">
+  <!-- <a href="index.html">
+  <img src="assets/img/logo.png" alt="Logo">
+  </a> -->
+
+  <h2>Upload Works</h2>
+  <form (ngSubmit)="updateauthor()" method="POST" [formGroup]="upAuthorForm">
+  <div>
+    <label id="book_img">Artist work Image</label>
+    <br>
+
+    <input type="file" accept="image/*" name="image" (change)="selectImage($event)" required>
+    <br>
+    <br>
+</div>
+
+<button type="submit" id="submit" value="Update">Update</button>
+  </form>
+
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  
+  <div class="go-top">
+  <i class="icofont-arrow-up"></i>
+  <i class="icofont-arrow-up"></i>
+  </div>
+  
+  
+  
