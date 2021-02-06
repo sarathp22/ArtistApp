@@ -1,27 +1,24 @@
 var express = require('express');
 var shopRouter = express.Router();
 var Shops = require('../models/shop');
+var Work = require('../models/works');
+var SpecialWorks = require('../models/specialWorks');
+var Tokens = require('../models/token');
 
 var multer  = require('multer')
-var upload = multer({ dest: './public/images' })
-// File upload settings  
+const DIR = './public/images';
 
-// var storage = multer.diskStorage({   
-//   destination: function(req, file, cb) { 
-//      cb(null, './public/uploads');    
-//   }, 
-// //   filename: function (req, file, cb) { 
-// //      cb(null , file.originalname);   
-// //   }
-//   filename: (req, file, cb) => {
-//     name= Date.now()+ '-' +file.originalname;
-//     cb(null, name )
-//   }
-// });
+let storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, DIR);
+    },
+    filename: (req, file, cb) => {
+      cb(null, Date.now()+ '-' +file.originalname);
+    }
+});
+let upload = multer({storage: storage});
 
-// const upload = multer({storage: storage}).single("image");
 
-// var TokenData = require('../models/tokenData');
 
 
 shopRouter.route('/')
@@ -87,27 +84,34 @@ Shops.findOne({email:req.body.email,status:true},(err,user)=>{
 });
 
 
-shopRouter.route('/uploadImage')
-.post(upload.single('image'),(req, res, next)=> {
+shopRouter.route('/uploadImage/:id')
+.put(upload.single('image'),(req, res, next)=> {
+    var user = req.params.id;
+    if (!req.file) {
+        console.log("No file received");
+        return res.send({
+          success: false
+        });
 
-    // console.log(req.file,req.body);
-// console.log(req.body);
-   console.log(req.file.name);
+      } else {
+        console.log('file received');
+        Work.create({artistId:user,image:req.file.filename}).then((t)=>{
+                                                    
+                                                            }
+        , (err) => next(err)).catch((err)=>next(err))
 
-//   const PATH = './public/uploads';
-//   upload(req, res, function (err) {
-//   if (err) {
-//     console.log(err);
-//     return res.status(422).send("an Error occured");
+        SpecialWorks.find({artistId:user,$set:{image:req.file.filename},upsert: true}).then((t)=>{
+                                                    
+        }
+, (err) => next(err)).catch((err)=>next(err))
 
-//   } path = req.file.PATH;
-// //   console.log(name);
-//   console.log(req.file.image);
-// //   return res.send(name); 
-// });
-// console.log(req.body.image.substring(23));
 
-    console.log("hai");
+        console.log(req.file.path);
+        console.log(req.file.filename);
+        return res.send({
+          success: true
+        })
+      }
     // console.log(req.body.file);
 
     // console.log(req.body.image.substring(23));
@@ -116,15 +120,26 @@ shopRouter.route('/uploadImage')
 });
 
 
-// shopRouter.route('/tokens/:id')
-// .get((req,res,next)=>{
-// // console.log(req.params.id);
-// TokenData.findOne({owner:req.params.id}).then((data)=>{
-//     // console.log(data);
-//     res.send(data)
-// },(err)=> next(err)
-// ).catch((err)=> next(err))
+shopRouter.route('/gallery')
+.get((req,res,next)=>{
+// console.log(req.params.id);
+Work.find().then((data)=>{
+    // console.log(data);
+    res.send(data)
+},(err)=> next(err)
+).catch((err)=> next(err))
 
-// });
+});
 
+
+shopRouter.route('/tokens/:id')
+.get((req,res,next)=>{
+// console.log(req.params.id);
+Tokens.find({artistId:req.params.id}).then((data)=>{
+    console.log(data);
+    res.send(data)
+},(err)=> next(err)
+).catch((err)=> next(err))
+
+});
 module.exports = shopRouter;

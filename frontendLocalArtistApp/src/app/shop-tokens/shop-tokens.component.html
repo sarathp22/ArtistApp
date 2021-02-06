@@ -19,18 +19,16 @@
   </a> -->
 
   <h2>Upload Works</h2>
-  <form (ngSubmit)="updateauthor()" method="POST" [formGroup]="upAuthorForm">
-  <div>
-    <label id="book_img">Artist work Image</label>
-    <br>
+  <br>
+  <br>
+  <input type="file" name="image" (change)="onFileSelected($event)" />
 
-    <input type="file" accept="image/*" name="image" (change)="selectImage($event)" required>
-    <br>
-    <br>
-</div>
+  <button type="button" class="btn btn-success btn-s" 
+  (click)="onUpload()">Upload an Image</button>
 
-<button type="submit" id="submit" value="Update">Update</button>
-  </form>
+  <!-- <img src="http://localhost:3000/images/1612544135431-download.jpg" alt="data"> -->
+
+  <!-- filename -->
 
   </div>
   </div>

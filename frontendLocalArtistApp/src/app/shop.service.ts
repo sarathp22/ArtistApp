@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
 
-  constructor(public _http:HttpClient) { }
+  userData = JSON.parse(localStorage.getItem('LocalAreaShops'));
+  constructor(public _http:HttpClient, private _route:Router) { }
 
   shopSignup(data)
   {
@@ -18,16 +20,22 @@ export class ShopService {
   }
 
 
-  uploadImage(data)
+  uploadImage(data,userId)
   {
-    return this._http.post("http://localhost:3000/shop/uploadImage", data).subscribe(data=>{console.log(data)})
+    return this._http.put("http://localhost:3000/shop/uploadImage/" + userId, data)
   }
-
 
 
   shopTokens(data)
   {
     return this._http.get<any>("http://localhost:3000/shop/tokens/" + data)
   }
+
+  getGalleryImages()
+  {
+    return this._http.get<any>("http://localhost:3000/shop/gallery")
+  }
+
+  
 
 }

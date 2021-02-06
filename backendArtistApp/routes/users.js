@@ -2,6 +2,7 @@ var express = require('express');
 var userRouter = express.Router();
 var Users = require('../models/user');
 var Shops = require('../models/shop');
+var Token = require('../models/token');
 // var TokenCheck = require('../models/tokenCheck');
 // var TokenData = require('../models/tokenData');
 var Token = require('../models/token');
@@ -71,6 +72,18 @@ Users.findOne({email:req.body.email},(err,user)=>{
 })
 
 
+  userRouter.route('/artist/:id')
+.get((req,res,next)=>{
+
+    Shops.findOne({_id:req.params.id},{name:1, phone:1, email: 1}).then((t1)=>
+    {
+      res.send(t1);
+      // console.log(t1);
+    },(err)=>{next(err)})
+    .catch((err) => next(err));
+
+});
+
 userRouter.route('/getTokenList/:id')
 .get((req,res,next)=>{
 
@@ -88,6 +101,24 @@ userRouter.route('/getShops/:categoryId')
     {res.send(shops)},(err)=>{next(err)})
     .catch((err) => next(err));
 })
+
+userRouter.route('/tokenRequest')
+.post((req,res,next)=>{
+  console.log(req.body);
+  Token.create(req.body).then((shops)=>
+  {res.send(shops)},(err)=>{next(err)})
+  .catch((err) => next(err));
+
+})
+
+// userRouter.route('/artists/id')
+// .get((req,res,next)=>{
+//   console.log(req.body);
+//   Shops.findOne({_id:req.params.id}).then((user)=>
+//   {res.send(user)},(err)=>{next(err)})
+//   .catch((err) => next(err));
+
+// })
 
 // userRouter.route('/tokenRequest/:ownerId')
 // .post((req,res,next)=>{

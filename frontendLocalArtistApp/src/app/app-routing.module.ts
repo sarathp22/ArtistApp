@@ -3,8 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { AdminGuard } from './admin.guard';
 import { AdminComponent } from './admin/admin.component';
+import { ArtistTokenComponent } from './artist-token/artist-token.component';
 import { ContactComponent } from './contact/contact.component';
 import { CustGuard } from './cust.guard';
+import { GalleryComponent } from './gallery/gallery.component';
 import { Home1Component } from './home1/home1.component';
 import { SelectTokenComponent } from './select-token/select-token.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
@@ -22,7 +24,7 @@ const routes: Routes = [{path:'home1',component:Home1Component},
                         {path:'shopSignin',component:ShopSigninComponent},
                         {path:'userSignup',component:UserSignupComponent},
                         {path:'userSignin',component:UserSigninComponent},
-                        {path:'admin/shopList',component:ShopListComponent,canActivate:[AdminGuard]},
+                        {path:'admin/artistList',component:ShopListComponent,canActivate:[AdminGuard]},
                         {path:'user/shopSelect',component:ShopSelectComponent, canActivate:[CustGuard]},
                         {path:'user/tokenSelect/:id', component:SelectTokenComponent, canActivate:[CustGuard]},
                         {path:'artist/workupload', component:ShopTokensComponent, canActivate:[ShopGuard]},
@@ -30,6 +32,8 @@ const routes: Routes = [{path:'home1',component:Home1Component},
                         {path:'contact', component:ContactComponent},
                         {path:'about', component:AboutComponent},
                         {path:'admin',component:AdminComponent},
+                        {path:'gallery', component:GalleryComponent},
+                        {path:'artist/tokens', component:ArtistTokenComponent, canActivate:[ShopGuard]},
                         {path:'',redirectTo:'home1',pathMatch:'full'}                                        
                                                                     ];
 

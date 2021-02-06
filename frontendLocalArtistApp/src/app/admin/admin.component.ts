@@ -19,7 +19,7 @@ export class AdminComponent implements OnInit {
   onSubmit()
   {
     // console.log("user",this.user);
-    this._admin.userLogin(this.user).subscribe((data)=>{this.serverData=data,this.userSave(data),this._router.navigate(['admin/shopList']);},(err)=>{this.errData=err,console.log(this.errData)})
+    this._admin.userLogin(this.user).subscribe((data)=>{this.serverData=data,this.userSave(data),this._router.navigate(['admin/artistList']);},(err)=>{this.errData=err,console.log(this.errData)})
       
   }
   userSave(data)

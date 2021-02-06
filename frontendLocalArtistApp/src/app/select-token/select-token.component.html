@@ -1,6 +1,64 @@
 <!-- <p>select-token works!</p> -->
 <!-- <p>shop-select works!</p> -->
 
+<br>
+
+
+<div class="card">
+  <div class="card-header">
+      <h5 class="card-header-text">About Artist</h5>
+  </div>
+  <div class="card-block">
+      <div class="view-info">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="general-info">
+                      <div class="row">
+                          <div class="col-lg-12 col-xl-12">
+                              <div class="table-responsive">
+                                  <table class="table m-0">
+                                      <tbody>
+                                          <tr>
+                                              <th scope="row">
+                                                  Name
+                                              </th>
+                                              <td>{{artist.name}}</td>
+                                          </tr>
+                                          <tr>
+                                              <th scope="row">
+                                                 Mobile</th>
+                                              <td>{{artist.phone}}</td>
+                                          </tr>
+                                          <tr>
+                                              <th scope="row">
+                                                  Email
+                                              </th>
+                                              <td>{{artist.email}}
+                                              </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                          <!-- end of table col-lg-6 -->
+
+                          <!-- end of table col-lg-6 -->
+                      </div>
+                      <!-- end of row -->
+                  </div>
+                  <!-- end of general info -->
+              </div>
+              <!-- end of col-lg-12 -->
+          </div>
+          <!-- end of row -->
+      </div>
+      <!-- end of view-info -->
+
+      <!-- end of edit-info -->
+  </div>
+  <!-- end of card-block -->
+</div>
+
 <div class="user-form-area" style="margin-bottom: 200px;">
     <div class="container-fluid p-0">
     <div class="row m-0">
@@ -24,12 +82,12 @@
     <div class="row">
     <div class="col-lg-12">
     <div class="form-group">
-    <input type="date" class="form-control" name="date" [(ngModel)]="user.date" placeholder="Shop name">
+    <input type="date" class="form-control" name="date" [(ngModel)]="user.date" >
     </div>
     </div>
     <div class="col-lg-12">
     <div class="form-group">
-    <input type="time" class="form-control" name="slot" [(ngModel)]="temp.slot" placeholder="GST number">
+    <input type="time" class="form-control" name="time" [(ngModel)]="user.time">
     </div>
     </div>
     <!-- <div class="col-lg-12">

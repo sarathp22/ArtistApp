@@ -23,6 +23,8 @@ import { ShopGuard } from './shop.guard';
 import { CustGuard } from './cust.guard';
 import { AdminGuard } from './admin.guard';
 import { AdminComponent } from './admin/admin.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { ArtistTokenComponent } from './artist-token/artist-token.component';
 
 
 @NgModule({
@@ -42,14 +44,16 @@ import { AdminComponent } from './admin/admin.component';
     UserTokenViewComponent,
     AboutComponent,
     ContactComponent,
-    AdminComponent
+    AdminComponent,
+    GalleryComponent,
+    ArtistTokenComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [ ShopGuard,CustGuard,AdminGuard ],
   bootstrap: [AppComponent]

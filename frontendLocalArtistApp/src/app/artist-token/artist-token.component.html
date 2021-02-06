@@ -1,0 +1,33 @@
+<!-- <p>artist-token works!</p> -->
+<div class="col-md-12 p-3">
+    <h1 class="text-center p-4">Token Booked</h1>
+  
+    
+    <div style="overflow-x: auto;">
+        <table class="table table-bordered table-default">
+            <thead>
+              <tr>
+                <th scope="col">NO</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Name</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let token of tokens let i = index">
+              <td scope="row"> <b>{{i+1}} </b> </td> 
+              <td scope="row"> <b>{{token?.date | date}} </b> </td> 
+              <td scope="row"> <b>{{token?.time }} </b> </td> 
+              <td scope="row"> <b>{{token?.userName }} </b> </td> 
+              <td scope="row"> <b>{{token?.phone }} </b> </td> 
+              <td scope="row"> <b>{{token?.email }} </b> </td> 
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+    
+
+</div>

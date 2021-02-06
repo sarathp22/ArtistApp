@@ -781,9 +781,11 @@
         <li class="nav-item">
             <a routerLink="artist/workupload" class="nav-link" [hidden]="!(_auth.shopLoggedIn() || _auth.custLoggedIn() || _auth.adminLoggedIn())">Upload Work</a>
         </li>
+        <li class="nav-item">
+            <a routerLink="artist/tokens" class="nav-link" [hidden]="!(_auth.shopLoggedIn() || _auth.custLoggedIn() || _auth.adminLoggedIn())">Token List</a>
+        </li>
         </ul>
         </li>
-
 
         <li class="nav-item">
             <a  class="nav-link dropdown-toggle">User <i class="icofont-simple-down"></i></a>
@@ -794,21 +796,23 @@
             <li class="nav-item">
                 <a routerLink="/userSignin" class="nav-link" [hidden]="(_auth.shopLoggedIn() || _auth.custLoggedIn() || _auth.adminLoggedIn())">Signin</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a routerLink="user/shopSelect" class="nav-link" [hidden]="!(_auth.shopLoggedIn() || _auth.custLoggedIn() || _auth.adminLoggedIn())">Token Request</a>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a routerLink="user/tokens" class="nav-link" [hidden]="!(_auth.shopLoggedIn() || _auth.custLoggedIn() || _auth.adminLoggedIn())">Token List</a>
             </li>
             </ul>
             </li>
             
-            
+            <li class="nav-item">
+                <a routerLink="gallery" class="nav-link">Gallery</a>
+            </li>
             <li class="nav-item">
                 <a routerLink="about" class="nav-link">About</a>
             </li>
 
-
+            
 
         <!-- <li class="nav-item">
         <a href="#" class="nav-link dropdown-toggle">Events <i class="icofont-simple-down"></i></a>

@@ -20,12 +20,16 @@ export class UserService {
   {
     return this._http.get("http://localhost:3000/user/getShops/" + data)
   }
-  tokenRequest(id,data)
+  tokenRequest(data)
   {
-    return this._http.post("http://localhost:3000/user/tokenRequest/"+ id,data)
+    return this._http.post("http://localhost:3000/user/tokenRequest",data)
   }
   userTokenList(data)
   {
     return this._http.get("http://localhost:3000/user/getTokenList/" + data)
+  }
+  getUser(data)
+  {
+    return this._http.get<any>("http://localhost:3000/user/artist/" + data)
   }
 }
