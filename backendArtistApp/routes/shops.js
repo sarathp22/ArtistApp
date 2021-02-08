@@ -27,6 +27,21 @@ shopRouter.route('/')
   res.send('respond with a resource');
 });
 
+
+shopRouter.route('/artists/gallery')
+.get((req,res,next)=>{
+// console.log(req.params.id);
+// console.log("Hai");
+    // res.send("sffsdf");
+Work.find().then((data)=>{
+    // console.log(data);
+    res.send(data)
+    
+},(err)=> next(err)
+).catch((err)=> next(err))
+
+});
+
 shopRouter.route('/signup')
 .post((req,res,next)=>{
 //   console.log(req.body);
@@ -119,7 +134,7 @@ shopRouter.route('/uploadImage/:id')
         Work.create({artistId:user,image:req.file.filename}).then((t)=>{
                                                     
                                                             }
-        , (err) => next(err)).catch((err)=>next(err))
+        , (err) => next(err)).catch((err)=>next(err));
 
         SpecialWorks.find({artistId:user,$set:{image:req.file.filename},upsert: true}).then((t)=>{
                                                     
@@ -141,16 +156,7 @@ shopRouter.route('/uploadImage/:id')
 });
 
 
-shopRouter.route('/gallery')
-.get((req,res,next)=>{
-// console.log(req.params.id);
-Work.find().then((data)=>{
-    // console.log(data);
-    res.send(data)
-},(err)=> next(err)
-).catch((err)=> next(err))
 
-});
 
 
 shopRouter.route('/tokens/:id')

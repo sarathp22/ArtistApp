@@ -33,7 +33,7 @@ export class ShopService {
 
   getGalleryImages()
   {
-    return this._http.get<any>("http://localhost:3000/shop/gallery")
+    return this._http.get<any>("http://localhost:3000/shop/artists/gallery");
   }
 
   getSpecifArtist(data)
