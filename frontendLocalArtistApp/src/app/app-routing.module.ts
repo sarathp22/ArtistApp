@@ -8,6 +8,7 @@ import { ContactComponent } from './contact/contact.component';
 import { CustGuard } from './cust.guard';
 import { GalleryComponent } from './gallery/gallery.component';
 import { Home1Component } from './home1/home1.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { SelectTokenComponent } from './select-token/select-token.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { ShopSelectComponent } from './shop-select/shop-select.component';
@@ -34,6 +35,7 @@ const routes: Routes = [{path:'home1',component:Home1Component},
                         {path:'admin',component:AdminComponent},
                         {path:'gallery', component:GalleryComponent},
                         {path:'artist/tokens', component:ArtistTokenComponent, canActivate:[ShopGuard]},
+                        {path:'artist/profileUpdate', component:ProfileEditComponent, canActivate:[ShopGuard]},
                         {path:'',redirectTo:'home1',pathMatch:'full'}                                        
                                                                     ];
 

@@ -25,6 +25,7 @@ import { AdminGuard } from './admin.guard';
 import { AdminComponent } from './admin/admin.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ArtistTokenComponent } from './artist-token/artist-token.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { ArtistTokenComponent } from './artist-token/artist-token.component';
     ContactComponent,
     AdminComponent,
     GalleryComponent,
-    ArtistTokenComponent
+    ArtistTokenComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,

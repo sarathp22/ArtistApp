@@ -26,6 +26,7 @@ shopRouter.route('/')
 .get(function(req, res, next) {
   res.send('respond with a resource');
 });
+
 shopRouter.route('/signup')
 .post((req,res,next)=>{
 //   console.log(req.body);
@@ -82,6 +83,26 @@ Shops.findOne({email:req.body.email,status:true},(err,user)=>{
   }
 })
 });
+
+
+shopRouter.route('/:id')
+.get((req,res,next)=>{
+    Shops.findOne({_id:req.params.id},{status:0,createdAt:0,usertype:0,updatedAt:0}).then((data)=>{
+        // console.log(data);
+        res.send(data)
+    },(err)=> next(err)
+    ).catch((err)=> next(err))
+
+})
+.put((req,res,next)=>{
+    Shops.findByIdAndUpdate({_id:req.params.id},{$set:req.body},{ new: true }).then((data)=>{
+        // console.log(data);
+        res.send(data)
+    },(err)=> next(err)
+    ).catch((err)=> next(err))
+
+});
+
 
 
 shopRouter.route('/uploadImage/:id')

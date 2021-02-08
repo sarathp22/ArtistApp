@@ -784,6 +784,9 @@
         <li class="nav-item">
             <a routerLink="artist/tokens" class="nav-link" [hidden]="!(_auth.shopLoggedIn() || _auth.custLoggedIn() || _auth.adminLoggedIn())">Token List</a>
         </li>
+        <li class="nav-item">
+            <a routerLink="artist/profileUpdate" class="nav-link" [hidden]="!(_auth.shopLoggedIn() || _auth.custLoggedIn() || _auth.adminLoggedIn())">Profile</a>
+        </li>
         </ul>
         </li>
 

@@ -36,6 +36,14 @@ export class ShopService {
     return this._http.get<any>("http://localhost:3000/shop/gallery")
   }
 
+  getSpecifArtist(data)
+  {
+    return this._http.get<any>("http://localhost:3000/shop/" + data)
+  }
+  updateSpecifArtist(data,userId)
+  {
+    return this._http.put<any>("http://localhost:3000/shop/" + userId , data)
+  }
   
 
 }
