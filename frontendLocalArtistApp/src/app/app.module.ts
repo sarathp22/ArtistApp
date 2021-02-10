@@ -26,6 +26,7 @@ import { AdminComponent } from './admin/admin.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ArtistTokenComponent } from './artist-token/artist-token.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { ArtistWorksComponent } from './artist-works/artist-works.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     AdminComponent,
     GalleryComponent,
     ArtistTokenComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    ArtistWorksComponent
   ],
   imports: [
     BrowserModule,

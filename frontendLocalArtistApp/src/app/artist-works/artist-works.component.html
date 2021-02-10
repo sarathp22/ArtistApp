@@ -1,0 +1,35 @@
+<!-- <p>artist-works works!</p> -->
+<div class="container">
+    <div class="row" >
+    <div class="col-sm-6 col-lg-4" *ngFor = "let img of images">
+    <div class="m-3">
+    <img src="http://localhost:3000/images/{{img.image}}" height="310px" alt="{{img.image}}">
+    <div>
+    <button class="btn btn-danger my-4 text-white" (click)="deleteImage(img._id)" style="margin-left: 37%;">Delete</button>
+    </div>
+    </div>
+    </div>
+
+
+    
+    </div>
+    <div class="pagination-area my-5">
+    <ul>
+    <li>
+    <a href="#">Prev</a>
+    </li>
+    <li>
+    <a class="active" href="#">1</a>
+    </li>
+    <li>
+    <a href="#">2</a>
+    </li>
+    <li>
+    <a href="#">3</a>
+    </li>
+    <li>
+    <a href="#">Next</a>
+    </li>
+    </ul>
+    </div>
+    </div>

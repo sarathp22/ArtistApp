@@ -35,7 +35,7 @@ export class ShopTokensComponent implements OnInit {
     const fd = new FormData();
     console.log(this.selectedFile);
     fd.append('image',this.selectedFile,this.selectedFile.name);
-    this._shop.uploadImage(fd,this.userData.token).subscribe((data)=>{this._route.navigate(['gallery'])})
+    this._shop.uploadImage(fd,this.userData.token).subscribe((data)=>{this._route.navigate(['artist/works'])})
     
   }
 

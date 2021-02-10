@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { AdminGuard } from './admin.guard';
 import { AdminComponent } from './admin/admin.component';
 import { ArtistTokenComponent } from './artist-token/artist-token.component';
+import { ArtistWorksComponent } from './artist-works/artist-works.component';
 import { ContactComponent } from './contact/contact.component';
 import { CustGuard } from './cust.guard';
 import { GalleryComponent } from './gallery/gallery.component';
@@ -36,6 +37,7 @@ const routes: Routes = [{path:'home1',component:Home1Component},
                         {path:'gallery', component:GalleryComponent},
                         {path:'artist/tokens', component:ArtistTokenComponent, canActivate:[ShopGuard]},
                         {path:'artist/profileUpdate', component:ProfileEditComponent, canActivate:[ShopGuard]},
+                        {path:'artist/works', component:ArtistWorksComponent, canActivate:[ShopGuard]},
                         {path:'',redirectTo:'home1',pathMatch:'full'}                                        
                                                                     ];
 

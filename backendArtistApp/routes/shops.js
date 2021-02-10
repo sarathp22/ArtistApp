@@ -2,7 +2,7 @@ var express = require('express');
 var shopRouter = express.Router();
 var Shops = require('../models/shop');
 var Work = require('../models/works');
-var SpecialWorks = require('../models/specialWorks');
+// var SpecialWorks = require('../models/specialWorks');
 var Tokens = require('../models/token');
 
 var multer  = require('multer')
@@ -120,6 +120,50 @@ shopRouter.route('/:id')
 
 
 
+shopRouter.route('/artist/artistImages/:id')
+.get((req,res,next)=>{
+
+  Work.find({artistId:req.params.id}).then((data)=>{
+    res.send(data);
+  },
+  (err)=>{
+    next(err);
+  }
+  )
+  .catch((err)=>next(err));
+
+})
+.delete((req,res,next)=>{
+  console.log("delete works");
+   Work.findOneAndRemove({_id:req.params.id}).then((data)=>{
+     // res.send(data);
+   },
+   (err)=>{
+     next(err);
+   }
+   )
+   .catch((err)=>next(err));
+ 
+ });;
+
+// shopRouter.route('/artistImageDelete/artistImages/:id')
+// .get((req,res,next)=>{
+//  console.log("delete works");
+//   Work.findOneAndRemove({_id:req.params.id}).then((data)=>{
+//     // res.send(data);
+//   },
+//   (err)=>{
+//     next(err);
+//   }
+//   )
+//   .catch((err)=>next(err));
+
+// });
+
+
+
+
+
 shopRouter.route('/uploadImage/:id')
 .put(upload.single('image'),(req, res, next)=> {
     var user = req.params.id;
@@ -136,10 +180,10 @@ shopRouter.route('/uploadImage/:id')
                                                             }
         , (err) => next(err)).catch((err)=>next(err));
 
-        SpecialWorks.find({artistId:user,$set:{image:req.file.filename},upsert: true}).then((t)=>{
+//         SpecialWorks.find({artistId:user,$set:{image:req.file.filename},upsert: true}).then((t)=>{
                                                     
-        }
-, (err) => next(err)).catch((err)=>next(err))
+//         }
+// , (err) => next(err)).catch((err)=>next(err))
 
 
         console.log(req.file.path);

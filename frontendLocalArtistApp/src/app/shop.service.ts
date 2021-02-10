@@ -44,6 +44,17 @@ export class ShopService {
   {
     return this._http.put<any>("http://localhost:3000/shop/" + userId , data)
   }
+
+  getArtistImages(userId)
+  {
+    return this._http.get<any>("http://localhost:3000/shop/artist/artistImages/" + userId)
+  }
+
+  deleteArtistImages(imageId)
+  {
+    return this._http.delete<any>("http://localhost:3000/shop/artist/artistImages/" + imageId)
+
+  }
   
 
 }
